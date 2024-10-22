@@ -12,5 +12,6 @@ systemctl restart h-ui
 echo
 echo "登录方式：IP:PORT"
 echo "面板端口：6812"
-echo "用户名/密码：sysadmin"
+echo "用户名：sysadmin"
+echo "密码：sysadmin"
 echo
