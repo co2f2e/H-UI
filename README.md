@@ -15,7 +15,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/h-ui/
 
 * 订阅后端转换
 ```bash
-https://suburl.v1.mk/
+https://scg.jokin.uk/
 ```
 
 
