@@ -13,11 +13,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/h-ui/
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/h-ui/uninstall_hui.sh)
 ```
 
-* 订阅后端转换
-```bash
-https://scg.jokin.uk/
-```
-
 
 
 
