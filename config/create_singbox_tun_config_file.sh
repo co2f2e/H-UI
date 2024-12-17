@@ -102,7 +102,7 @@ cat > "$OUTPUT_FILE" <<EOF
     { "tag": "📲 Telegram", "type": "selector", "outbounds": ["🚀 节点选择", $(generate_outbounds)] },
     { "tag": "🍏 Apple", "type": "selector", "outbounds": ["🎯 全球直连", "🚀 节点选择", $(generate_outbounds)] },
     { "tag": "🐠 漏网之鱼", "type": "selector", "outbounds": ["🚀 节点选择","🎯 全球直连"] },
-    { "tag": "🎯 全球直连", "type": "direct" }
+    { "tag": "🎯 全球直连", "type": "direct" },
 EOF
 for (( i=1; i<=SERVER_COUNT; i++ ))
 do
