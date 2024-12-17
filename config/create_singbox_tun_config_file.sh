@@ -4,7 +4,7 @@ clear
 
 OUTPUT_FILE="./singbox_tun.json"
 
-read -p "请输入自建Hysteria2节点的数量: " SERVER_COUNT
+read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
 
 if ! [[ "$SERVER_COUNT" =~ ^[0-9]+$ ]]; then
   echo "请输入一个有效的数字"
