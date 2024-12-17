@@ -15,7 +15,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/h-ui/uninstall
 
 * 生成SingBox客户端配置文件
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_singbox_config.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_singbox_tun_config_file.sh)
 ```
 
 
