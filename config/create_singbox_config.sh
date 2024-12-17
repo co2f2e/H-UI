@@ -4,10 +4,10 @@ clear
 
 OUTPUT_FILE="./singbox.json"
 
-read -p "请输入服务器的数量: " SERVER_COUNT
+read -p "请输入自建Hysteria2节点的数量: " SERVER_COUNT
 
 if ! [[ "$SERVER_COUNT" =~ ^[0-9]+$ ]]; then
-  echo "请输入一个有效的数字！"
+  echo "请输入一个有效的数字"
   exit 1
 fi
 
@@ -21,7 +21,7 @@ do
   read -p "请输入节点${i}的自定义名称: " NAME
   NAMES[i]=$NAME
 
-  read -p "请输入节点${i}的服务器地址: " SERVER
+  read -p "请输入节点${i}的地址: " SERVER
   SERVERS[i]=$SERVER
   
   read -p "请输入节点${i}的端口号: " PORT
@@ -30,7 +30,6 @@ do
   read -p "请输入节点${i}的密码: " PASSWORD
   PASSWORDS[i]=$PASSWORD
 
-  echo "第 $i 个服务器信息已保存：地址=$SERVER, 端口=$PORT, 密码=$PASSWORD"
   echo
 done
 
@@ -43,10 +42,9 @@ generate_outbounds() {
       result+="\"${NAMES[i]}\""
     fi
   done
-  echo "$result"  # 返回结果
+  echo "$result" 
 }
 
-# JSON 模板内容
 cat > "$OUTPUT_FILE" <<EOF
 {
   "log": {
@@ -128,7 +126,6 @@ EOF
 done
 cat >> "$OUTPUT_FILE" <<EOF
   ],
-  
   "route": 
  {
    "auto_detect_interface": true,
@@ -154,7 +151,6 @@ cat >> "$OUTPUT_FILE" <<EOF
      {"rule_set": "geosite-geolocation-!cn", "action": "route", "outbound": "🚀 节点选择"},
      {"rule_set": ["geoip-cn", "geosite-cn"], "action": "route", "outbound": "🎯 全球直连"}
    ],
-    
     "rule_set": [
       { "tag": "geosite-chat", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-youtube", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/youtube.srs", "download_detour": "🎯 全球直连" },
@@ -168,8 +164,7 @@ cat >> "$OUTPUT_FILE" <<EOF
       { "tag": "geosite-onedrive", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/onedrive.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-geolocation-!cn", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 全球直连" },
-      { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs", "download_detour": "🎯 全球直连" },
-            
+      { "tag": "geosite-private", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/private.srs", "download_detour": "🎯 全球直连" },   
       { "tag": "geoip-google", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/google.srs", "download_detour": "🎯 全球直连" },
       { "tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs", "download_detour": "🎯 全球直连" },     
       { "tag": "geoip-netflix", "type": "remote", "format": "binary", "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs", "download_detour": "🎯 全球直连" },     
@@ -180,6 +175,4 @@ cat >> "$OUTPUT_FILE" <<EOF
   }
 }
 EOF
-
-
 echo "配置文件已生成，路径：$OUTPUT_FILE"
