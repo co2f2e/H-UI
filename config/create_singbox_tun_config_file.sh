@@ -1,38 +1,28 @@
 #!/bin/bash
-
 clear
-
 OUTPUT_FILE="./singbox_tun.json"
-
 read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
-
 if ! [[ "$SERVER_COUNT" =~ ^[0-9]+$ ]]; then
   echo "请输入一个有效的数字"
   exit 1
 fi
-
+echo
 declare -a NAMES
 declare -a SERVERS
 declare -a PORTS
 declare -a PASSWORDS
-
 for (( i=1; i<=SERVER_COUNT; i++ ))
 do
   read -p "请输入节点${i}的自定义名称: " NAME
   NAMES[i]=$NAME
-
   read -p "请输入节点${i}的地址: " SERVER
   SERVERS[i]=$SERVER
-  
   read -p "请输入节点${i}的端口号: " PORT
   PORTS[i]=$PORT
-  
   read -p "请输入节点${i}的密码: " PASSWORD
   PASSWORDS[i]=$PASSWORD
-
   echo
 done
-
 generate_outbounds() {
   local result=""
   for (( i=1; i<=SERVER_COUNT; i++ )); do
@@ -44,7 +34,6 @@ generate_outbounds() {
   done
   echo "$result" 
 }
-
 cat > "$OUTPUT_FILE" <<EOF
 {
   "log": {
