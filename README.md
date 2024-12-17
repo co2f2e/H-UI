@@ -13,6 +13,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/h-ui/
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/h-ui/uninstall_hui.sh)
 ```
 
+* 生成配置文件
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hysteria2-ui/main/config/create_singbox_config.sh)
+```
+
 
 
 
