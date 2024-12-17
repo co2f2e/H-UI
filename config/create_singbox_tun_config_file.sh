@@ -3,7 +3,17 @@ clear
 OUTPUT_FILE="./singbox_tun.json"
 read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
 if ! [[ "$SERVER_COUNT" =~ ^[0-9]+$ ]]; then
-  echo "请输入一个有效的数字"
+  echo "请输入0~9有效的数字"
+  exit 1
+fi
+read -p "请设置上传速度: " UP_MBPS
+if ! [[ "$UP_MBPS" =~ ^[0-9999]+$ ]]; then
+  echo "请输入0~9999有效的数字"
+  exit 1
+fi
+read -p "请设置下载速度: " DOWN_MBPS
+if ! [[ "$DOWN_MBPS" =~ ^[0-9999]+$ ]]; then
+  echo "请输入0~9999有效的数字"
   exit 1
 fi
 echo
@@ -102,8 +112,8 @@ cat >> "$OUTPUT_FILE" <<EOF
       "server": "${SERVERS[i]}",
       "server_port": ${PORTS[i]},
       "type": "hysteria2",
-      "up_mbps": 70,
-      "down_mbps": 100,
+      "up_mbps": ${UP_MBPS},
+      "down_mbps": ${DOWN_MBPS},
       "password": "${PASSWORDS[i]}",
       "tls": {
         "insecure": false,
