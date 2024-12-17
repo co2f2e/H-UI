@@ -174,4 +174,4 @@ cat >> "$OUTPUT_FILE" <<EOF
   }
 }
 EOF
-echo "配置文件已生成，路径：$OUTPUT_FILE"
+echo "配置文件已生成路径如下：$OUTPUT_FILE"
