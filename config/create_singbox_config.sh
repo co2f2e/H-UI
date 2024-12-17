@@ -2,7 +2,7 @@
 
 clear
 
-OUTPUT_FILE="./singbox.json"
+OUTPUT_FILE="./singbox_tun.json"
 
 read -p "请输入自建Hysteria2节点的数量: " SERVER_COUNT
 
