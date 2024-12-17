@@ -6,12 +6,12 @@ if ! [[ "$SERVER_COUNT" =~ ^[0-9]+$ ]]; then
   echo "请输入0~9有效的数字"
   exit 1
 fi
-read -p "请设置上传速度: " UP_MBPS
+read -p "请设置上传速度(mbps): " UP_MBPS
 if ! [[ "$UP_MBPS" =~ ^[0-9999]+$ ]]; then
   echo "请输入0~9999有效的数字"
   exit 1
 fi
-read -p "请设置下载速度: " DOWN_MBPS
+read -p "请设置下载速度(mbps): " DOWN_MBPS
 if ! [[ "$DOWN_MBPS" =~ ^[0-9999]+$ ]]; then
   echo "请输入0~9999有效的数字"
   exit 1
@@ -23,7 +23,7 @@ declare -a PORTS
 declare -a PASSWORDS
 for (( i=1; i<=SERVER_COUNT; i++ ))
 do
-  read -p "请输入节点${i}的自定义名称: " NAME
+  read -p "请设置节点${i}的自定义名称: " NAME
   NAMES[i]=$NAME
   read -p "请输入节点${i}的地址: " SERVER
   SERVERS[i]=$SERVER
