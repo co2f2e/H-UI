@@ -54,7 +54,7 @@ for (( i=1; i<=SERVER_COUNT; i++ ))
 do
   read -p "$(green "请设置节点${i}的自定义名称: ")" NAME
     if [[ " ${NAMES[@]} " =~ " ${NAME} " ]]; then
-      red "名称$(yellow "${NAME}")已经存在，请重新设置"
+      red "此名称已经存在，请重新设置"
       ((i--))
       echo
       continue
