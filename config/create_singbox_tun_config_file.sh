@@ -1,21 +1,30 @@
 #!/bin/bash
 clear
 OUTPUT_FILE="./singbox_tun.json"
+while true; do
 read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
 if ! [[ "$SERVER_COUNT" =~ ^[1-9]+$ ]]; then
   echo "请输入1~9有效的数字"
-  exit 1
+elif
+  break
 fi
+done
+while true; do
 read -p "请设置上传速度(mbps): " UP_MBPS
 if ! [[ "$UP_MBPS" =~ ^[1-9999]+$ ]]; then
   echo "请输入1~9999有效的数字"
-  exit 1
+elif
+  break
 fi
+done
+while true; do
 read -p "请设置下载速度(mbps): " DOWN_MBPS
 if ! [[ "$DOWN_MBPS" =~ ^[1-9999]+$ ]]; then
   echo "请输入1~9999有效的数字"
-  exit 1
+elif
+  break
 fi
+done
 echo
 declare -a NAMES
 declare -a SERVERS
