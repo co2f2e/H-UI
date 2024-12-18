@@ -55,8 +55,8 @@ do
   read -p "$(green "请设置节点${i}的自定义名称: ")" NAME
     if [[ " ${NAMES[@]} " =~ " ${NAME} " ]]; then
       echo "$(red "名称'$(yellow ${NAME})'已经存在，请重新设置")"
-    else
-      break
+      echo
+      continue
     fi
   NAMES[i]=$NAME
   read -p "$(green "请输入节点${i}的地址: ")" SERVER
