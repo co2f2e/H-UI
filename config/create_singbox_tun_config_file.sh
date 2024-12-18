@@ -55,7 +55,7 @@ do
   read -p "$(green "请设置节点${i}的自定义名称: ")" NAME
     if [[ " ${NAMES[@]} " =~ " ${NAME} " ]]; then
       red "名称"$(yellow ${NAME})"已经存在，请重新设置"
-      i--
+      ((i--))
       echo
       continue
     fi
