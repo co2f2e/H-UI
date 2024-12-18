@@ -1,28 +1,39 @@
 #!/bin/bash
+GREEN='\033[32m'
+RED='\033[31m'
+
+green() {
+	echo -e "${GREEN}${1}${RESET}"
+}
+
+red() {
+	echo -e "${RED}${1}${RESET}"
+}
+
 clear
 OUTPUT_FILE="./singbox_tun.json"
 while true; do
-read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
+read -p "$(green '请输入Hysteria2节点的数量: ')" SERVER_COUNT
 if ! [[ "$SERVER_COUNT" =~ ^[1-9][0-9]*$ ]]; then
-  echo "输入有误，请输入大于0的整数"
+  red "输入有误，请输入大于0的整数"
   echo
 else
   break
 fi
 done
 while true; do
-read -p "请设置上传速度(mbps): " UP_MBPS
+read -p "$(green '请设置上传速度(mbps): ')" UP_MBPS
 if ! [[ "$UP_MBPS" =~ ^[1-9][0-9]{0,3}$ ]]; then
-  echo "输入有误，请输入1~9999有效的数字"
+  red "输入有误，请输入1~9999有效的数字"
   echo
 else
   break
 fi
 done
 while true; do
-read -p "请设置下载速度(mbps): " DOWN_MBPS
+read -p "$(green '请设置下载速度(mbps): ')" DOWN_MBPS
 if ! [[ "$DOWN_MBPS" =~ ^[1-9][0-9]{0,3}$ ]]; then
-  echo "输入有误，请输入1~9999有效的数字"
+  red "输入有误，请输入1~9999有效的数字"
   echo
 else
   break
@@ -35,30 +46,13 @@ declare -a PORTS
 declare -a PASSWORDS
 for (( i=1; i<=SERVER_COUNT; i++ ))
 do
-  read -p "请设置节点${i}的自定义名称: " NAME
+  read -p "$(green '请设置节点${i}的自定义名称: ')" NAME
   NAMES[i]=$NAME
-  read -p "请输入节点${i}的地址: " SERVER
+  read -p "$(green '请输入节点${i}的地址: ')" SERVER
   SERVERS[i]=$SERVER
-  read -p "请输入节点${i}的端口号: " PORT
+  read -p "$(green '请输入节点${i}的端口号: ')" PORT
   PORTS[i]=$PORT
-  read -p "请输入节点${i}的密码: " PASSWORD
-  PASSWORDS[i]=$PASSWORD
-  echo
-done
-echo
-declare -a NAMES
-declare -a SERVERS
-declare -a PORTS
-declare -a PASSWORDS
-for (( i=1; i<=SERVER_COUNT; i++ ))
-do
-  read -p "请设置节点${i}的自定义名称: " NAME
-  NAMES[i]=$NAME
-  read -p "请输入节点${i}的地址: " SERVER
-  SERVERS[i]=$SERVER
-  read -p "请输入节点${i}的端口号: " PORT
-  PORTS[i]=$PORT
-  read -p "请输入节点${i}的密码: " PASSWORD
+  read -p "$(green '请输入节点${i}的密码: ')" PASSWORD
   PASSWORDS[i]=$PASSWORD
   echo
 done
@@ -203,4 +197,4 @@ cat >> "$OUTPUT_FILE" <<EOF
   }
 }
 EOF
-echo "配置文件已生成路径如下：$OUTPUT_FILE"
+green "配置文件已生成路径如下：$OUTPUT_FILE"
