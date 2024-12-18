@@ -1,6 +1,8 @@
 #!/bin/bash
 GREEN='\033[32m'
 RED='\033[31m'
+YELLOW='\033[33m'
+RESET='\033[0m'
 
 green() {
 	echo -e "${GREEN}${1}${RESET}"
@@ -8,6 +10,10 @@ green() {
 
 red() {
 	echo -e "${RED}${1}${RESET}"
+}
+
+yellow() {
+	echo -e "${YELLOW}${1}${RESET}"
 }
 
 clear
@@ -197,4 +203,4 @@ cat >> "$OUTPUT_FILE" <<EOF
   }
 }
 EOF
-green "配置文件已生成路径如下：$OUTPUT_FILE"
+yellow "配置文件已生成路径如下：$OUTPUT_FILE"
