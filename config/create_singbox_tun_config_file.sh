@@ -3,8 +3,8 @@ clear
 OUTPUT_FILE="./singbox_tun.json"
 while true; do
 read -p "请输入Hysteria2节点的数量: " SERVER_COUNT
-if ! [[ "$SERVER_COUNT" =~ ^[1-9]+$ ]]; then
-  echo "输入有误，请输入1~9有效的数字"
+if ! [[ "$SERVER_COUNT" =~ ^[1-9][0-9]*$ ]]; then
+  echo "输入有误，请输入大于0的整数"
   echo
 else
   break
@@ -12,7 +12,7 @@ fi
 done
 while true; do
 read -p "请设置上传速度(mbps): " UP_MBPS
-if ! [[ "$UP_MBPS" =~ ^[1-9999]+$ ]]; then
+if ! [[ "$UP_MBPS" =~ ^[1-9][0-9]{0,3}$ ]]; then
   echo "输入有误，请输入1~9999有效的数字"
   echo
 else
@@ -21,12 +21,29 @@ fi
 done
 while true; do
 read -p "请设置下载速度(mbps): " DOWN_MBPS
-if ! [[ "$DOWN_MBPS" =~ ^[1-9999]+$ ]]; then
+if ! [[ "$DOWN_MBPS" =~ ^[1-9][0-9]{0,3}$ ]]; then
   echo "输入有误，请输入1~9999有效的数字"
   echo
 else
   break
 fi
+done
+echo
+declare -a NAMES
+declare -a SERVERS
+declare -a PORTS
+declare -a PASSWORDS
+for (( i=1; i<=SERVER_COUNT; i++ ))
+do
+  read -p "请设置节点${i}的自定义名称: " NAME
+  NAMES[i]=$NAME
+  read -p "请输入节点${i}的地址: " SERVER
+  SERVERS[i]=$SERVER
+  read -p "请输入节点${i}的端口号: " PORT
+  PORTS[i]=$PORT
+  read -p "请输入节点${i}的密码: " PASSWORD
+  PASSWORDS[i]=$PASSWORD
+  echo
 done
 echo
 declare -a NAMES
