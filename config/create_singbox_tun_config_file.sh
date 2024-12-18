@@ -46,13 +46,13 @@ declare -a PORTS
 declare -a PASSWORDS
 for (( i=1; i<=SERVER_COUNT; i++ ))
 do
-  read -p "$(green '请设置节点${i}的自定义名称: ')" NAME
+  read -p "$(green "请设置节点${i}的自定义名称: ")" NAME
   NAMES[i]=$NAME
-  read -p "$(green '请输入节点${i}的地址: ')" SERVER
+  read -p "$(green "请输入节点${i}的地址: ")" SERVER
   SERVERS[i]=$SERVER
-  read -p "$(green '请输入节点${i}的端口号: ')" PORT
+  read -p "$(green "请输入节点${i}的端口号: ")" PORT
   PORTS[i]=$PORT
-  read -p "$(green '请输入节点${i}的密码: ')" PASSWORD
+  read -p "$(green "请输入节点${i}的密码: ")" PASSWORD
   PASSWORDS[i]=$PASSWORD
   echo
 done
