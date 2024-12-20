@@ -110,7 +110,7 @@ cat > "$OUTPUT_FILE" <<EOF
       "stack": "system",
       "platform": {
         "http_proxy": {
-          "enabled": true,
+          "enabled": false,
           "server": "127.0.0.1",
           "server_port": 2080
         }
