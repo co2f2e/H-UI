@@ -20,11 +20,18 @@ if ! command -v crontab &> /dev/null; then
   sudo systemctl enable cron
   sudo systemctl start cron
 fi
-RESTART_HUI="/usr/local/h-ui/restart-h-ui.sh"
+RESTART_HUI="/usr/local/h-ui/restart-hui.sh"
 cat <<EOF | sudo tee $RESTART_HUI > /dev/null
 #!/bin/bash
 sudo systemctl restart h-ui
 EOF
 sudo chmod +x $RESTART_HUI
-(crontab -l 2>/dev/null; echo "0 3 * * * $RESTART_HUI") | crontab -
-echo "h-ui服务安装完成，定时任务已设置为每天凌晨 3 点重启服务!!!"
+sudo timedatectl set-timezone Asia/Shanghai
+(crontab -l 2>/dev/null; echo "0 4 * * * $RESTART_HUI") | crontab -
+echo "h-ui服务安装完成，定时任务已设置为每天凌晨4点重启服务!!!"
+echo
+echo "登录方式：IP:PORT"
+echo "面板端口：6812"
+echo "用户名：sysadmin"
+echo "密码：sysadmin"
+echo
