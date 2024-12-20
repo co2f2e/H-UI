@@ -18,6 +18,9 @@ yellow() {
 
 clear
 OUTPUT_FILE="./singbox_tun.json"
+echo
+yellow "此脚本仅适用于hysteria2协议节点!!!"
+echo
 while true; do
 read -p "$(green '请输入Hysteria2节点的数量: ')" SERVER_COUNT
 if ! [[ "$SERVER_COUNT" =~ ^[1-9][0-9]*$ ]]; then
