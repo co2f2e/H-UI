@@ -18,7 +18,6 @@ yellow() {
 
 clear
 OUTPUT_FILE="./singbox_tun.json"
-echo
 yellow "此脚本仅适用于hysteria2协议节点!!!"
 echo
 while true; do
