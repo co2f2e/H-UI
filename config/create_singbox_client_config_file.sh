@@ -51,7 +51,7 @@ echo
 green "是否跳过证书验证？"
 green "1) 是"
 green "2) 否"
-read -p "$(green '请输入 1 或 2: ')" CHOICE
+read -p "$(green '请输入1或2: ')" CHOICE
 
 if [ "$CHOICE" -eq 1 ]; then
     secure=true
@@ -65,7 +65,7 @@ echo
 green "是否开启TLS？"
 green "1) 是"
 green "2) 否"
-read -p "$(green '请输入 1 或 2: ')" CHOICE
+read -p "$(green '请输入1或2: ')" CHOICE
 
 if [ "$CHOICE" -eq 1 ]; then
     tls=true
