@@ -47,6 +47,20 @@ else
   break
 fi
 done
+echo "是否跳过证书验证？"
+echo "1) 是"
+echo "2) 否"
+read -p "请输入 1 或 2: " choice
+
+# 根据用户输入进行不同的处理
+if [ "$choice" -eq 1 ]; then
+    flag=true
+elif [ "$choice" -eq 2 ]; then
+    flag=false
+else
+    echo "无效的选择，请输入 1 或 2。"
+    exit 1
+fi
 echo
 declare -a NAMES
 declare -a SERVERS
@@ -153,7 +167,7 @@ cat >> "$OUTPUT_FILE" <<EOF
       "down_mbps": ${DOWN_MBPS},
       "password": "${PASSWORDS[i]}",
       "tls": {
-        "insecure": false,
+        "insecure": ${flag},
         "enabled": true
       },
       "tcp_fast_open": false
