@@ -47,31 +47,32 @@ else
   break
 fi
 done
-echo "是否跳过证书验证？"
-echo "1) 是"
-echo "2) 否"
-read -p "请输入 1 或 2: " choice
+echo
+green "是否跳过证书验证？"
+green "1) 是"
+green "2) 否"
+read -p "$(green '请输入 1 或 2: ')" CHOICE
 
-if [ "$choice" -eq 1 ]; then
+if [ "$CHOICE" -eq 1 ]; then
     secure=true
-elif [ "$choice" -eq 2 ]; then
+elif [ "$CHOICE" -eq 2 ]; then
     secure=false
 else
-    echo "无效的选择，请输入1或2"
+    red "无效的选择，请输入1或2"
     exit 1
 fi
 echo
-echo "是否开启TLS？"
-echo "1) 是"
-echo "2) 否"
-read -p "请输入 1 或 2: " choice
+green "是否开启TLS？"
+green "1) 是"
+green "2) 否"
+read -p "$(green '请输入 1 或 2: ')" CHOICE
 
-if [ "$choice" -eq 1 ]; then
+if [ "$CHOICE" -eq 1 ]; then
     tls=true
-elif [ "$choice" -eq 2 ]; then
+elif [ "$CHOICE" -eq 2 ]; then
     tls=false
 else
-    echo "无效的选择，请输入1或2"
+    red "无效的选择，请输入1或2"
     exit 1
 fi
 echo
