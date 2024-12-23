@@ -52,13 +52,26 @@ echo "1) 是"
 echo "2) 否"
 read -p "请输入 1 或 2: " choice
 
-# 根据用户输入进行不同的处理
 if [ "$choice" -eq 1 ]; then
-    flag=true
+    secure=true
 elif [ "$choice" -eq 2 ]; then
-    flag=false
+    secure=false
 else
-    echo "无效的选择，请输入 1 或 2。"
+    echo "无效的选择，请输入1或2"
+    exit 1
+fi
+echo
+echo "是否开启TLS？"
+echo "1) 是"
+echo "2) 否"
+read -p "请输入 1 或 2: " choice
+
+if [ "$choice" -eq 1 ]; then
+    tls=true
+elif [ "$choice" -eq 2 ]; then
+    tls=false
+else
+    echo "无效的选择，请输入1或2"
     exit 1
 fi
 echo
@@ -167,8 +180,8 @@ cat >> "$OUTPUT_FILE" <<EOF
       "down_mbps": ${DOWN_MBPS},
       "password": "${PASSWORDS[i]}",
       "tls": {
-        "insecure": ${flag},
-        "enabled": true
+        "insecure": ${secure},
+        "enabled": ${tls}
       },
       "tcp_fast_open": false
     }$( [[ $i -lt $SERVER_COUNT ]] && echo "," || echo "")
