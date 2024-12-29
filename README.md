@@ -17,10 +17,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/h-ui/uninstall
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_singbox_client_config_file.sh)
 ```
-或
-```python
-curl -s https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_singbox_client_config_file.py | python3
-```
 
 
 
