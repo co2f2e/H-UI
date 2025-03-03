@@ -18,6 +18,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/h-ui/uninstall
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_singbox_client_config_file.sh)
 ```
 
+* 修改Nginx首页
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/hy2/main/config/create_index.sh)
+```
+
 
 
 
