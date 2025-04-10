@@ -7,12 +7,12 @@ bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/HUI/main/acme/acme2.0.s
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/HUI/main/acme/revoke_acme2.0.sh)
 ```
 
-* 安装H-UI服务
+* 安装HUI服务
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/HUI/main/h-ui/install_hui.sh)
 ```
 
-* 卸载H-UI服务
+* 卸载HUI服务
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/co2f2e/HUI/main/h-ui/uninstall_hui.sh)
 ```
