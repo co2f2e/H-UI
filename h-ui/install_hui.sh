@@ -7,12 +7,6 @@ sed -i "s|^ExecStart=.*|ExecStart=/usr/local/h-ui/h-ui -p 6812|" "/etc/systemd/s
 systemctl daemon-reload
 systemctl enable h-ui
 systemctl restart h-ui
-echo
-echo "登录方式：IP:PORT"
-echo "面板端口：6812"
-echo "用户名：sysadmin"
-echo "密码：sysadmin"
-echo
 if ! command -v crontab &> /dev/null; then
   echo "cron 未安装，正在安装 cron..."
   sudo apt update > /dev/null 2>&1
